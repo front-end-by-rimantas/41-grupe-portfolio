@@ -36,7 +36,6 @@
 .container > .row {
     float: left;
     width: 100%;
-    background-color: rgb(245, 228, 231);
 }
 .container > .row + .row {
     margin-top: 20px;
@@ -44,7 +43,6 @@
 
 .container > .row > [class*='col-'] {
     float: left;
-    background-color: yellow;
     margin-left: var(--mar-0);
     margin-right: var(--mar-0);
 }
