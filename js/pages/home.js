@@ -16,7 +16,7 @@ tiles('hobbies_block', hobbiesData);
 /* hobbies end */
 
 /* services start */
-tiles('services_block', servicesData);
+// tiles('services_block', servicesData);
 /* services end */
 
 /* footer start */
