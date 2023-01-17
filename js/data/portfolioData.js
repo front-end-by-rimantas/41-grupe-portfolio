@@ -21,7 +21,7 @@ const portfolioData = {
         max: 6,
     },
     rendering: {
-        strategy: 'entry',
+        strategy: 'title',
         order: 'az',
     },
     content: [

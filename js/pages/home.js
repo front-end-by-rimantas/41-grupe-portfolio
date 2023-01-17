@@ -20,8 +20,7 @@ tiles('hobbies_block', hobbiesData);
 /* services end */
 
 /* portfolio start */
-const gallery = new Gallery('#portfolio_block', portfolioData);
-console.log(gallery);
+new Gallery('#portfolio_block', portfolioData);
 /* portfolio end */
 
 /* footer start */
