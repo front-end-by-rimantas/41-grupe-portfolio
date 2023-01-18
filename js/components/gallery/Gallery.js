@@ -71,6 +71,20 @@ class Gallery {
             return false;
         }
 
+        // PIRMAS ATRINKIMO BUDAS
+        // const validData = [];
+        // for (const item of this.data.content) {
+        //     if (this.isValidGalleryItem(item)) {
+        //         validData.push(item);
+        //     }
+        // }
+        // this.data.content = validData;
+
+        // ANTRAS ATRINKIMO BUDAS
+        this.data.content = this.data.content.filter(
+            this.isValidGalleryItem.bind(this)
+        );
+
         return true;
     }
 
@@ -138,14 +152,77 @@ class Gallery {
         return dataCopy;
     }
 
-    render() {
+    isValidGalleryItemImage(str) {
+        return true;
+    }
+
+    isValidGalleryItemImageAlt(str) {
+        return true;
+    }
+
+    isValidGalleryItemTitle(str) {
+        return true;
+    }
+
+    isValidGalleryItemLink(str) {
+        return true;
+    }
+
+    isValidGalleryItemTags(tags) {
+        return true;
+    }
+
+    isValidGalleryItem(item) {
+        if (
+            item.published !== true ||
+            !this.isValidGalleryItemImage(item.img) ||
+            !this.isValidGalleryItemImageAlt(item.alt) ||
+            !this.isValidGalleryItemTitle(item.title) ||
+            !this.isValidGalleryItemLink(item.link) ||
+            !this.isValidGalleryItemTags(item.tags)
+        ) {
+            return false;
+        }
+        return true;
+    }
+
+    generateContent() {
         let HTML = '';
 
-        console.log(this.dataForRendering);
+        for (const item of this.dataForRendering) {
+            HTML += `<div class="item">
+                        <div class="visual">
+                            <img class="img" src="${item.img}" alt="${item.alt}">
+                            <div class="hover-layer">
+                                <i class="icon fa fa-camera"></i>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <a class="title" href="${item.link}">${item.title}</a>
+                            <div class="tag">${item.tags[0]}</div>
+                            <div class="btn">Click me</div>
+                        </div>
+                    </div>`;
+        }
 
-        // HTML += ...
-        // HTML += ...
-        // HTML += ...
+        return HTML;
+    }
+
+    generateFilter() {
+        return `<button class="option">Labas</button>
+                <button class="option">Rytas</button>
+                <button class="option">Lietuva</button>
+                <button class="option">Didi</button>`;
+    }
+
+    render() {
+        let HTML = `<div class="filter">
+                        <button class="option active">All</button>
+                        ${this.generateFilter()}
+                    </div>
+                    <div class="content">
+                        ${this.generateContent()}
+                    </div>`;
 
         this.DOM.innerHTML = HTML;
     }

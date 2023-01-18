@@ -26,20 +26,20 @@ const portfolioData = {
     },
     content: [
         {
-            published: true,
+            published: false,
             img: './img/portfolio/1.jpg',
             alt: 'Portfolio image 1',
             title: 'Working Keyboard',
             link: '#',
-            tag: ['Branding', 'Designing'],
+            tags: ['Branding', 'Designing'],
         },
         {
-            published: true,
+            published: false,
             img: './img/portfolio/2.jpg',
             alt: 'Portfolio image 2',
             title: 'The Micro Headphones',
             link: '#',
-            tag: ['Branding', 'Development'],
+            tags: ['Branding', 'Development'],
         },
         {
             published: true,
@@ -47,7 +47,7 @@ const portfolioData = {
             alt: 'Portfolio image 3',
             title: 'The Coffee Cup',
             link: '#',
-            tag: ['Designing', 'Development'],
+            tags: ['Designing', 'Development'],
         },
         {
             published: true,
@@ -55,7 +55,7 @@ const portfolioData = {
             alt: 'Portfolio image 4',
             title: 'The Wooden Desk',
             link: '#',
-            tag: ['Photography'],
+            tags: ['Photography'],
         },
         {
             published: true,
@@ -63,7 +63,7 @@ const portfolioData = {
             alt: 'Portfolio image 5',
             title: 'Camera',
             link: '#',
-            tag: ['Photography'],
+            tags: ['Photography'],
         },
         {
             published: true,
@@ -71,7 +71,7 @@ const portfolioData = {
             alt: 'Portfolio image 6',
             title: 'Branded Laptop',
             link: '#',
-            tag: ['Photography'],
+            tags: ['Photography'],
         },
         {
             published: true,
@@ -79,7 +79,7 @@ const portfolioData = {
             alt: 'Portfolio image 7',
             title: 'Kitchen',
             link: '#',
-            tag: ['Photography', 'Designing'],
+            tags: ['Photography', 'Designing'],
         },
         {
             published: true,
@@ -87,7 +87,7 @@ const portfolioData = {
             alt: 'Portfolio image 8',
             title: 'Flower',
             link: '#',
-            tag: ['Photography', 'Designing'],
+            tags: ['Photography', 'Designing'],
         },
         {
             published: true,
@@ -95,7 +95,7 @@ const portfolioData = {
             alt: 'Portfolio image 9',
             title: 'Chair',
             link: '#',
-            tag: ['Branding', 'Development'],
+            tags: ['Branding', 'Development'],
         },
     ],
 };
