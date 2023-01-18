@@ -26,6 +26,7 @@ class Gallery {
 
         this.filterDataForRendering();
         this.render();
+        this.enableFilter();
     }
 
     isValidSelector() {
@@ -209,10 +210,15 @@ class Gallery {
     }
 
     generateFilter() {
-        return `<button class="option">Labas</button>
-                <button class="option">Rytas</button>
-                <button class="option">Lietuva</button>
-                <button class="option">Didi</button>`;
+        const tags = this.dataForRendering
+            .map((item) => item.tags)
+            .reduce((total, item) => [...total, ...item], []);
+
+        const uniqueTags = [...new Set(tags)];
+
+        return uniqueTags
+            .map((tag) => `<button class="option">${tag}</button>`)
+            .join('');
     }
 
     render() {
@@ -225,6 +231,32 @@ class Gallery {
                     </div>`;
 
         this.DOM.innerHTML = HTML;
+    }
+
+    enableFilter() {
+        const buttonsDOM = this.DOM.querySelectorAll('.filter > .option');
+        const itemsDOM = this.DOM.querySelectorAll('.content > .item');
+
+        for (const button of buttonsDOM) {
+            button.addEventListener('click', () => {
+                const tag = button.innerText;
+                if (tag === 'All') {
+                    for (const item of itemsDOM) {
+                        item.classList.remove('hidden');
+                    }
+                } else {
+                    for (let i = 0; i < this.dataForRendering.length; i++) {
+                        const itemDOM = itemsDOM[i];
+                        const item = this.dataForRendering[i];
+                        if (item.tags.includes(tag)) {
+                            itemDOM.classList.remove('hidden');
+                        } else {
+                            itemDOM.classList.add('hidden');
+                        }
+                    }
+                }
+            });
+        }
     }
 }
 
